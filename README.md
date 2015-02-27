@@ -29,6 +29,4 @@ Clazz = instanceFactory.createClass('Clazz', {
 o = new Clazz();
 ```
 
-@TODO complete
-
-Enjoy !
+to be continued...
