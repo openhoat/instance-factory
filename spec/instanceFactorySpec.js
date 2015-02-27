@@ -76,7 +76,6 @@ describe('object factory', function () {
       },
       methods: {
         getA: function () {
-          log.debug('A! ', this.a);
           return this.a;
         }
       }
