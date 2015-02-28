@@ -8,6 +8,10 @@ Create classes for nodejs the easy way
 
 ## Getting started
 
+Instance factory provides a 'createClass' method that builds an object instance based on the given description.
+
+## Use cases
+
 ### Simple class :
 
 ```javascript
@@ -35,7 +39,7 @@ console.log(o.getA());
 console.log(o.a);
 ```
 
-### Simple subclass :
+### Subclass :
 
 ```javascript
 var instanceFactory = require('instance-factory')
@@ -68,7 +72,7 @@ console.log(o.getA());
 console.log(o.getB());
 ```
 
-### Simple subclass of a subclass :
+### Subclass of a subclass :
 
 ```javascript
 var instanceFactory = require('instance-factory')
