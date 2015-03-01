@@ -126,4 +126,38 @@ describe('object factory', function () {
     o.getSum().should.equal(14);
   });
 
+  it.only('should call a method from super class', function () {
+    var Clazz, Subclazz, Child, o;
+    Clazz = instanceFactory.createClass('Clazz', {
+      constructor: function () {
+        this.a = 3;
+        this.b = 4;
+      },
+      methods: {
+        getA: function () {
+          return this.getB();
+        }
+      }
+    });
+    Subclazz = instanceFactory.createClass('Subclazz', {
+      parent: Clazz,
+      defaults: {b: 5},
+      methods: {
+        getB: function () {
+          return this.b;
+        }
+      }
+    });
+    o = new Subclazz();
+    o.should.be.an('object');
+    o.should.be.an.instanceOf(Subclazz);
+    o.should.be.an.instanceOf(Clazz);
+    o.should.respondTo('getA');
+    o.should.respondTo('getB');
+    o.should.have.property('a', 3);
+    o.should.have.property('b', 5);
+    o.getA().should.equal(5);
+    o.getB().should.equal(5);
+  });
+
 });

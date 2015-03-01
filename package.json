@@ -1,6 +1,6 @@
 {
   "name": "instance-factory",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Create classes for nodejs the easy way",
   "main": "lib/instance-factory.js",
   "author": "Olivier Penhoat <openhoat@gmail.com> (http://headwood.net/)",
