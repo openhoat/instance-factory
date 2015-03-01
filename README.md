@@ -100,20 +100,22 @@ Subclazz = instanceFactory.createClass('Subclazz', {
     }
   }
 });
-Child = instanceFactory.createClass('Child', {
-  parent: Subclazz,
-  defaults: {c: 6},
-  methods: {
-    getA: function () {
-      return this.parent.getA.apply(this) * 2;
-    },
-    getC: function () {
-      return this.c;
-    },
-    getSum: function () {
-      return this.a + this.b + this.c;
+Child = instanceFactory.createClass('Child', function () { // class desc can also be specified with a function
+  return {
+    parent: Subclazz,
+    defaults: {c: 6},
+    methods: {
+      getA: function () {
+        return this.parent.getA.apply(this) * 2;
+      },
+      getC: function () {
+        return this.c;
+      },
+      getSum: function () {
+        return this.a + this.b + this.c;
+      }
     }
-  }
+  };
 });
 o = new Child();
 console.log(o instanceof Child);
