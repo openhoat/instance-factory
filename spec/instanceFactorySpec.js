@@ -11,12 +11,14 @@ describe('object factory', function () {
   it('should create a simple class', function () {
     var Clazz, o;
     Clazz = instanceFactory.createClass('Clazz', {
+      static: {
+        config: {
+          z: 'z'
+        }
+      },
       constructor: function () {
         this.a = 3;
         this.b = 4;
-      },
-      config: {
-        z: 'z'
       },
       methods: {
         getA: function () {
@@ -89,20 +91,22 @@ describe('object factory', function () {
         }
       }
     });
-    Child = instanceFactory.createClass('Child', {
-      parent: Subclazz,
-      defaults: {c: 6},
-      methods: {
-        getA: function () {
-          return this.parent.getA.apply(this) * 2;
-        },
-        getC: function () {
-          return this.c;
-        },
-        getSum: function () {
-          return this.a + this.b + this.c;
+    Child = instanceFactory.createClass('Child', function () {
+      return {
+        parent: Subclazz,
+        defaults: {c: 6},
+        methods: {
+          getA: function () {
+            return this.parent.getA.apply(this) * 2;
+          },
+          getC: function () {
+            return this.c;
+          },
+          getSum: function () {
+            return this.a + this.b + this.c;
+          }
         }
-      }
+      };
     });
     o = new Child();
     o.should.be.an('object');
