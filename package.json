@@ -34,7 +34,7 @@
     }
   },
   "dependencies": {
-    "hw-logger": "1.0.9"
+    "hw-logger": "1.1.11"
   },
   "devDependencies": {
     "chai": "1.10.0",
